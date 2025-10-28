@@ -27,7 +27,9 @@
           </div>
 
           <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
+            <a href="{{ site.baseurl }}/">Home</a>
+            <a href="{{ site.baseurl }}/projects">Projects</a>
+            <a href="{{ site.baseurl }}/experience">Experience</a>
             <a href="{{ site.baseurl }}/about">About</a>
           </nav>
         </header>
@@ -41,11 +43,53 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
-          {% include svg-icons.html %}
+          <div class="footer-contact-section">
+            <h3>Get In Touch</h3>
+            <p>Have a question or want to work together? Send me a message!</p>
+            
+            <!-- Simple mailto solution - Works immediately! -->
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+              </div>
+              
+              <div class="form-group">
+                <textarea name="message" id="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="submit-btn">Send Message</button>
+              
+              <div id="form-status" class="form-status"></div>
+            </form>
+          </div>
+          
+          <div class="footer-social-section">
+            <h3>Connect With Me</h3>
+            {% include svg-icons.html %}
+          </div>
+          
+          <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.name }}. All rights reserved.</p>
+          </div>
         </footer>
       </div>
     </div>
 
     {% include analytics.html %}
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        // Initialize EmailJS with your public key
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+      })();
+    </script>
+    
+    <script src="{{ site.baseurl }}/js/contact-form.js"></script>
   </body>
 </html>

@@ -2,17 +2,109 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Hi, I'm Khalid Ahmed Ebrahim</h1>
+    <h2 class="hero-subtitle">Machine Learning Engineer & AI Specialist</h2>
+    <p class="hero-description">
+      I build intelligent systems using Deep Learning, NLP, and Computer Vision. 
+      Specializing in Generative AI, LLMs, RAG pipelines, and Multi-Agent Systems.
+    </p>
+    <div class="hero-buttons">
+      <a href="{{ site.baseurl }}/projects" class="btn btn-primary">View Projects</a>
+      <a href="{{ site.baseurl }}/about" class="btn btn-secondary">About Me</a>
+    </div>
+  </div>
 </div>
+
+<section class="featured-section">
+  <h2 class="section-title">Featured Projects</h2>
+  
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image">
+        <img src="{{ site.baseurl }}/images/projects/clothes-fitting-1.png" alt="Virtual Try-On">
+      </div>
+      <div class="project-content">
+        <h3>Virtual Try-On with Stable Diffusion</h3>
+        <p>AI-powered virtual try-on app using IDM-Vton and Stable Diffusion, supporting 300+ simultaneous users.</p>
+        <div class="project-tags">
+          <span class="tag">Stable Diffusion</span>
+          <span class="tag">Flask</span>
+          <span class="tag">PyTorch</span>
+        </div>
+        <a href="https://k7alid.github.io/clothes-fitting-app/" class="project-link">Blog →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="{{ site.baseurl }}/images/projects/mine-segmentation-1.png" alt="Mining Segmentation">
+      </div>
+      <div class="project-content">
+        <h3>Mining Area Segmentation</h3>
+        <p>Satellite imagery analysis using SegFormer achieving 98.19% accuracy with 12-channel data processing.</p>
+        <div class="project-tags">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">SegFormer</span>
+          <span class="tag">Satellite</span>
+        </div>
+        <a href="https://k7alid.github.io/mine-satellite-segformer/" class="project-link">Blog →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="{{ site.baseurl }}/images/projects/medico-chatbot.gif" alt="Medical RAG">
+      </div>
+      <div class="project-content">
+        <h3>Medical RAG Assistant</h3>
+        <p>Retrieval-Augmented Generation system with ChromaDB and Hugging Face for medical queries.</p>
+        <div class="project-tags">
+          <span class="tag">RAG</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">ChromaDB</span>
+        </div>
+        <a href="https://k7alid.github.io/medico-chatbot/" class="project-link">Blog →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-content">
+        <h3>Multi-Agent AI System</h3>
+        <p>Flask-based AI assistant with specialized agents (Elysium, Muse, Aegis, Zima) powered by Claude-3.</p>
+        <div class="project-tags">
+          <span class="tag">Multi-Agent</span>
+          <span class="tag">Claude-3</span>
+          <span class="tag">Flask</span>
+        </div>
+        <a href="https://www.xminds.ai/" class="project-link">Live Demo →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="view-all-projects">
+    <a href="{{ site.baseurl }}/projects" class="btn btn-outline">View All Projects</a>
+  </div>
+</section>
+
+<section class="experience-preview">
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="experience-cards">
+    <div class="experience-card">
+      <h3>UPWORK</h3>
+      <p class="role">Machine Learning Engineer</p>
+      <p class="duration">October 2024 - Present</p>
+      <p>7+ AI/ML projects including Video Colorization, Satellite Segmentation, and Multi-Agent Systems.</p>
+    </div>
+    <div class="experience-card">
+      <h3>Injaz Company</h3>
+      <p class="role">Flutter Developer</p>
+      <p class="duration">August 2022 - October 2024</p>
+      <p>Developed mobile apps (Injaz.Go, Ellista) with 10,000+ downloads combined.</p>
+    </div>
+  </div>
+  <div class="view-all-projects">
+    <a href="{{ site.baseurl }}/experience" class="btn btn-outline">View Full Experience</a>
+  </div>
+</section>
