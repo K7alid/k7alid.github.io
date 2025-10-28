@@ -11,6 +11,11 @@ description: Machine Learning Engineer
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/K7alid/k7alid.github.io/refs/heads/main/images/personal-image.jpg
 
+# Your website URL (e.g. https://k7alid.github.io)
+url: "https://k7alid.github.io"
+# If your site is in a subdirectory, set baseurl to the subdirectory path
+# For https://k7alid.github.io, baseurl should be empty
+baseurl: ""
 
 #
 # Flags below are optional
