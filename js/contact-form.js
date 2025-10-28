@@ -1,4 +1,4 @@
-// Contact Form Handler - Simple & Direct Solution
+// Contact Form Handler - EmailJS Integration
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
@@ -28,34 +28,40 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Sending...';
             formStatus.style.display = 'none';
             
-            // Create mailto link
-            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-            const body = encodeURIComponent(
-                `Name: ${name}\n` +
-                `Email: ${email}\n\n` +
-                `Message:\n${message}\n\n` +
-                `---\n` +
-                `Sent from: k7alid.github.io`
-            );
+            // Send email using EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message,
+                to_name: 'Khalid Ahmed'
+            };
             
-            const mailtoLink = `mailto:khaledahmedebrzhim@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            const mailWindow = window.open(mailtoLink);
-            
-            // Show success message
-            setTimeout(() => {
-                formStatus.className = 'form-status success';
-                formStatus.innerHTML = '✓ Email client opened! Please send the message from your email app.<br><small style="margin-top: 8px; display: block;">Or copy this email: <strong>khaledahmedebrzhim@gmail.com</strong></small>';
-                formStatus.style.display = 'block';
-                
-                // Reset form
-                form.reset();
-                
-                // Re-enable button
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-            }, 500);
+            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS IDs
+            emailjs.send('service_ygigezp', 'template_rpo9yp9', templateParams)
+                .then(function(response) {
+                    // Success
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.style.display = 'block';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }, function(error) {
+                    // Error
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = '✗ Failed to send message. Please try again or email me directly at khaledahmedebrzhim@gmail.com';
+                    formStatus.style.display = 'block';
+                    
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                    
+                    console.error('EmailJS Error:', error);
+                });
         });
     }
 });
